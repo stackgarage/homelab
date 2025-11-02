@@ -7,7 +7,7 @@
 {{- end }}
 {{- end }}
 
-{{/* Define the full name */}}
+{{/* Define the full name - Defined but not used */}}
 {{- define "app.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}

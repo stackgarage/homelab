@@ -37,7 +37,7 @@ spec:
             {{- end }}
           {{- end }}
           volumeMounts:
-            {{- $claimName := .Values.existingClaim | default .Values.nfspersistence.persistence.name }}
+            {{- $claimName := .Values.existingClaim | default .Values.persistence.name }}
             {{- if $claimName }}
             {{- range .Values.app.volumeMounts }}
             - name: {{ $claimName }}
@@ -65,7 +65,7 @@ spec:
             failureThreshold: {{ .Values.app.livenessProbe.failureThreshold }}
           {{- end }}
       volumes:
-        {{- $claimName := .Values.existingClaim | default .Values.nfspersistence.persistence.name }}
+        {{- $claimName := .Values.existingClaim | default .Values.persistence.name }}
         {{- if $claimName }}
         - name: {{ $claimName }}
           persistentVolumeClaim:

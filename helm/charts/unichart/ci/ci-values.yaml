@@ -1,8 +1,8 @@
 ---
 namespace: "apps"
 
-fullnameOverride: "ci-test"
-nameOverride: "ci"
+# fullnameOverride: "ci-test"
+# nameOverride: "ci"
 
 app:
   image:
