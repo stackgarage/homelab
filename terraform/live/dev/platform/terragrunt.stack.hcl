@@ -22,6 +22,18 @@ unit "csi-driver" {
   }
 }
 
+unit "nfs-storageclass" {
+  source = "${get_repo_root()}/terraform/catalog/units/nfs-storageclass"
+  path   = "nfs-storageclass"
+  values = {
+    class_name     = "nfs-client"
+    server         = "10.10.50.38"
+    share          = "/volume1/k3s-dev"
+    config_path    = local.common.locals.kubeconfig_path
+    config_context = local.common.locals.kubeconfig_context
+  }
+}
+
 unit "metallb-cr" {
   source = "${get_repo_root()}/terraform/catalog/units/metallb-cr"
   path   = "metallb-cr"
