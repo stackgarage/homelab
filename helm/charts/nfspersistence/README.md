@@ -7,7 +7,7 @@ This Helm chart provisions a `PersistentVolumeClaim`. It supports both dynamic a
 
 ### Features
 
-- Supports dynamic provisioning via a `StorageClass`. This assumes the cluster already has an NFS CSI driver is pre-configured. See [CSI driver deployment example](https://github.com/stackgarage/homelab/tree/main/terraform/k3s-main/csi-driver-nfs).
+- Supports dynamic provisioning via a `StorageClass`. This assumes the cluster already has an NFS CSI driver is pre-configured. See [CSI driver deployment example](https://github.com/tinycloud-labs/infrastructure/tree/main/terraform/k3s-main/csi-driver-nfs).
 - Supports static NFS provisioning by creating a corresponding `PersistentVolume`.
 - Optional metadata: labels, annotations, and namespace override.
 

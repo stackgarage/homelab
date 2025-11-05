@@ -12,7 +12,7 @@ jobs:
   generate-docs:
     runs-on: self-hosted
     container:
-      image: ghcr.io/stackgarage/tf-tools:latest
+      image: ghcr.io/tinycloud-labs/tf-tools:latest
 
     steps:
       - uses: shakir85/checkout@v4
