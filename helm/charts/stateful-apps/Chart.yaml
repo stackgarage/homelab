@@ -6,4 +6,4 @@ description: A generic Helm chart for deploying stateful applications
 dependencies:
   - name: nfspersistence
     version: 0.3.1
-    repository: https://stackgarage.github.io/homelab/
+    repository: https://tinycloud-labs.github.io/infrastructure/

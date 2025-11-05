@@ -7,7 +7,7 @@ include "root" {
 }
 
 terraform {
-  source = "git::https://github.com/stackgarage/tf-modules.git//gha-runner?ref=0.3.8"
+  source = "git::https://github.com/tinycloud-labs/tf-modules.git//gha-runner?ref=0.3.8"
 
 }
 
@@ -15,8 +15,8 @@ inputs = {
   kube_namespace   = "runners"
   create_namespace = true
   runner_name      = values.runner_name
-  repo             = "homelab"
-  org              = "stackgarage"
+  repo             = "infrastructure"
+  org              = "tinycloud-labs"
   config_path      = values.config_path
   config_context   = values.config_context
 }

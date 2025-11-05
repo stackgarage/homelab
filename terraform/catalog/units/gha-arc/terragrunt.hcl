@@ -7,7 +7,7 @@ include "root" {
 }
 
 terraform {
-  source = "git::https://github.com/stackgarage/tf-modules.git//gha-arc?ref=0.3.8"
+  source = "git::https://github.com/tinycloud-labs/tf-modules.git//gha-arc?ref=0.3.8"
 }
 
 inputs = {

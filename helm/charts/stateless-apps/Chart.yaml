@@ -23,4 +23,4 @@ appVersion: "1.0"
 dependencies:
   - name: nfspersistence
     version: 0.3.1
-    repository: https://stackgarage.github.io/homelab/
+    repository: https://tinycloud-labs.github.io/infrastructure/
