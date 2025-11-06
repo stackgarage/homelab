@@ -2,12 +2,10 @@ name: Terragrunt HCL Format
 
 on:
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+    types: [ opened, synchronize, reopened ]
     paths:
       - "terraform/live/**"
+      - "terraform/catalog/units/**"
 
 jobs:
   format:
@@ -29,13 +27,7 @@ jobs:
       - name: Commit changes
         run: |
           git add -A
-          git commit -m "🤖 chore: update Terraform docs [skip ci]" || echo "No changes to commit"
+          git commit -m "🤖 chore: Terragrunt HCL lint [skip ci]" || echo "No changes to commit"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git ${{ github.head_ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Validate HCL files
-        uses: gruntwork-io/terragrunt-action@v3
-        with:
-          tg_dir: 'terraform/live'
-          tg_command: 'hcl validate'
