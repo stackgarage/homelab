@@ -22,6 +22,7 @@ env:
   TF_VAR_github_app_id: ${{ secrets.TF_VAR_GH_APP_ID }}
   TF_VAR_github_app_installation_id: ${{ secrets.TF_VAR_GITHUB_APP_INSTALLATION_ID }}
   TF_VAR_github_app_private_key: ${{ secrets.TF_VAR_GH_APP_KEY }}
+  TF_VAR_github_token: ${{ secrets.TF_VAR_GITHUB_TOKEN }}
 
 jobs:
   deploy:
