@@ -14,32 +14,24 @@ on:
           - prod
 
 jobs:
-  # Spin up VMs + provision K3s
-  cluster:
-    uses: ./.github/workflows/callable-terragrunt.yml
-    secrets: inherit
-    with:
-      module-path: terraform/live/${{ inputs.environment }}/cluster
-  
-  # Deploy tools which the platform layer depends on
+  # Spin up VMs + provision K3s + cert-manager + GH Arc
   infra:
-    needs: cluster
     uses: ./.github/workflows/callable-terragrunt.yml
     secrets: inherit
     with:
       module-path: terraform/live/${{ inputs.environment }}/infra
 
   # Wait for CRDs to register with the API Server. TODO: find a better approach.
-  warmup:
+  crd_warmup:
     needs: infra
     runs-on: controller
     steps:
       - name: Wait for K8s Operator CRDs to be ready
         run: sleep 300
-  
+
   # Deploy tools that apps depend on
   platform:
-    needs: warmup
+    needs: crd_warmup
     uses: ./.github/workflows/callable-terragrunt.yml
     secrets: inherit
     with:
