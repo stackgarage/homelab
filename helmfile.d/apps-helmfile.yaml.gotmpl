@@ -20,42 +20,6 @@ repositories:
 
 {{/* Helm releases that are deployed from selfhosted charts */}}
 releases:
-  - name: excalidraw
-    namespace: {{ $commonNamespace }}
-    chart: {{ $statelessChartsDir }}
-    values:
-      - {{ printf "%s/%s" $valuesDir "excalidraw.yaml" }}
-
-  - name: deemix
-    namespace: {{ $commonNamespace }}
-    chart: {{ $statelessChartsDir }}
-    values:
-      - {{ printf "%s/%s" $valuesDir "deemix.yaml" }}
-
-  - name: metube
-    namespace: {{ $commonNamespace }}
-    chart: {{ $statelessChartsDir }}
-    values:
-      - {{ printf "%s/%s" $valuesDir "metube.yaml" }}
-
-  - name: omni-tools
-    namespace: {{ $commonNamespace }}
-    chart: {{ $statelessChartsDir }}
-    values:
-      - {{ printf "%s/%s" $valuesDir "omni-tools.yaml" }}
-
-  - name: speedtest
-    namespace: {{ $commonNamespace }}
-    chart: {{ $statelessChartsDir }}
-    values:
-      - {{ printf "%s/%s" $valuesDir "speedtest.yaml" }}
-
-  - name: s-pdf
-    namespace: {{ $commonNamespace }}
-    chart: {{ $statelessChartsDir }}
-    values:
-      - {{ printf "%s/%s" $valuesDir "s-pdf.yaml" }}
-
   - name: actualbudget
     namespace: {{ $commonNamespace }}
     chart: {{ $statelessChartsDir }}
@@ -79,12 +43,6 @@ releases:
     chart: {{ printf "%s/%s" $rootChartsDir "paperless-ngx" }}
     values:
       - {{ printf "%s/%s" $valuesDir "paperless-ngx.yaml" }}
-
-  - name: gaseous
-    namespace: {{ $commonNamespace }}
-    chart: {{ $statefulChartsDir  }}
-    values:
-      - {{ printf "%s/%s" $valuesDir "gaseous.yaml" }}
 
   - name: karakeep
     namespace: {{ $commonNamespace }}
