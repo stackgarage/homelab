@@ -1,6 +1,5 @@
-# TODO: move variables declarations to the child module
-generate "providers" {
-  path      = "providers.tf"
+generate "k8s_providers" {
+  path      = "k8s_providers.tf"
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
 provider "helm" {

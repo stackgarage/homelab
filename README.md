@@ -60,3 +60,6 @@ This makes clear separation across boundaries. It also prevents the sprawl of S3
 - **Infrastructure**: GitHub Actions designed to handle deployments at both the Terragrunt stack and full-environment level, while supporting helper workflows and tools such as labelers, linters, and other code management and quality workflows.
 
 - **Applications**: currently deployed via Helmfile; a bit clunky, but a handy tool. It will eventually be replaced by a GitOps tool to further simplify application deployments.
+A homelab Infrastructure-as-Code playground where I'm `uid=0`, i.e., I run the show - root access, full chaos. (WIP)
+
+![GitHub](https://img.shields.io/github/v/release/tinycloud-labs/infrastructure) ![Terragrunt Stack](https://github.com/tinycloud-labs/infrastructure/actions/workflows/terragrunt-stack-env.yml/badge.svg) ![Terragrunt Environment](https://github.com/tinycloud-labs/infrastructure/actions/workflows/terragrunt-deploy-env.yml/badge.svg) ![License](https://img.shields.io/github/license/tinycloud-labs/infrastructure) ![Issues](https://img.shields.io/github/issues/tinycloud-labs/infrastructure)

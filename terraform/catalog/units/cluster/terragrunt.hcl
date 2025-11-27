@@ -1,3 +1,6 @@
+#
+# Provisions K3s cluster. Calls the K3s Ansible playbooks as an after deployment hook.
+#
 include "proxmox" {
   path = "${get_repo_root()}/terraform/catalog/units/proxmox-provider.hcl"
 }

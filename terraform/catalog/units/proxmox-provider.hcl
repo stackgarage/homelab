@@ -1,4 +1,4 @@
-generate "providers" {
+generate "proxmox_provider" {
   path      = "providers.tf"
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF

@@ -1,29 +1,28 @@
 unit "cluster" {
-  source = "${get_repo_root()}/terraform/catalog/units/cluster"
-  path   = "cluster"
+  source = "${get_repo_root()}/terraform/catalog/units/vms"
+  path   = "vms"
 
   values = {
     proxmox_node_name = "pve1"
     disk_name         = "sdd"
     cloud_image_info  = ["sdc", "debian-12-generic-amd64.qcow2.img"]
     description       = "Managed by Terragrunt."
-    env               = "dev" # for pulling the correct inventory file
     cluster = [
       {
         # Control plane
-        name  = "dev-ctrl"
-        size  = "medium"
+        name  = "cka-ctrl"
+        size  = "small"
         count = 1
-        macs  = ["32:fe:ce:8c:3b:a8"]
+        macs  = ["3a:db:a4:a5:df:5c"]
       },
       {
         # Node group - small
-        name  = "dev-small-w"
+        name  = "cka-w"
         size  = "small"
         count = 2
         macs = [
-          "32:63:71:b2:58:c8",
-          "f6:24:d1:06:56:46",
+          "4e:6f:0a:96:3e:79",
+          "66:09:0f:f7:54:06",
         ]
       },
     ]

@@ -1,16 +1,39 @@
-name: "Terraform CI Pipeline"
+name: Terraform Lint Pipeline
 
 on:
   pull_request:
     types: [ opened, synchronize, reopened ]
-    paths: [ "terraform/**" ]
+    paths: [ "terraform/catalog/modules/**" ]
 
 jobs:
-  lint:
-    uses: ./.github/workflows/callable-tf-lint.yml
+  code-lint:
+    runs-on: self-hosted
+    container:
+      image: ghcr.io/tinycloud-labs/tf-tools:latest
 
-  docs:
-    needs: lint
-    uses: ./.github/workflows/callable-tf-docs.yml
-    with:
-      path: "terraform/"
+    steps:
+      - uses: shakir85/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: ./.github/actions/setup-git
+        with:
+          repo-path: /__w/homelab/homelab
+
+      - run: |
+          git fetch origin ${{ github.head_ref }}
+          git pull origin ${{ github.head_ref }}
+
+      - name: Format Terraform code
+        run: terraform fmt -recursive
+
+      - name: Lint Terraform code
+        run: tflint --recursive
+
+      - name: Commit changes
+        run: |
+          git add -A
+          git commit -m "chore: auto-format Terraform files [skip ci]" || echo "No changes to commit"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git ${{ github.head_ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

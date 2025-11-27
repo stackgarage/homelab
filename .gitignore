@@ -1,6 +1,7 @@
 .DS_Store
 *.lock
-
+# Helm chart test values
+values-test.yaml
 # IDEs/Text Editors
 .idea/
 .vscode/
