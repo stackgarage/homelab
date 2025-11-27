@@ -1,4 +1,0 @@
-apiVersion: v2
-name: paperless-ngx
-version: 0.1.0
-description: A Helm chart for Paperless-ngx with Redis
