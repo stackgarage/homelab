@@ -4,17 +4,13 @@ docs:
   - changed-files:
     - any-glob-to-any-file: "**/README*"
 
-tool-helm:
-  - changed-files:
-      - any-glob-to-any-file: "helm/**/*"
-
-tool-k8s:
-  - changed-files:
-      - any-glob-to-any-file: "k8s/**/*"
-
 tool-terraform:
   - changed-files:
-      - any-glob-to-any-file: "terraform/root-modules/**/*"
+      - any-glob-to-any-file: "terraform/catalog/modules/**/*"
+
+tool-terragrunt:
+  - changed-files:
+      - any-glob-to-any-file: "terraform/catalog/units/**/*"
 
 tool-terragrunt:
   - changed-files:
