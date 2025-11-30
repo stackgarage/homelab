@@ -7,7 +7,7 @@ on:
 
 jobs:
   close-stale-issues:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Close stale issues and PRs
         uses: actions/stale@v10
@@ -21,7 +21,7 @@ jobs:
           days-before-close: 7
 
   security-scan:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - name: Run gitleaks

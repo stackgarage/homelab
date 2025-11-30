@@ -23,10 +23,10 @@ jobs:
           git pull origin ${{ github.head_ref }}
 
       - name: Format Terraform code
-        run: terraform fmt -recursive
+        run: cd terraform/catalog/modules && terraform fmt -recursive
 
       - name: Lint Terraform code
-        run: tflint --recursive
+        run: tflint --recursive  --chdir terraform/catalog/modules
 
       - name: Commit changes
         run: |

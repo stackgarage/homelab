@@ -7,7 +7,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: "Label PRs"
       uses: actions/labeler@v6

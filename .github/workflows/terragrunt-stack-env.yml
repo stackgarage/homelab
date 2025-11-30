@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Which environment to deploy'
+        description: 'Which environment to deploy to'
         required: true
         type: choice
         default: 'dev'
@@ -13,10 +13,9 @@ on:
           - dev
           - prod
       stack:
-        description: 'Which stack to deploy'
+        description: 'What stack to deploy'
         type: choice
         options:
-          - cluster
           - infra
           - platform
 
